@@ -1,6 +1,7 @@
 package member.model.vo;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class MemberVo {
 //	MEMBER		
@@ -17,12 +18,12 @@ public class MemberVo {
 	private String phone;
 	private String address;
 	private Date joinDate;
-	private char grade;
+	private String grade;
 	private String city;
 	
 	public MemberVo() {}
 	
-	public MemberVo(int custNo, String custName, String phone, String address, Date joinDate, char grade, String city) {
+	public MemberVo(int custNo, String custName, String phone, String address, Date joinDate, String grade, String city) {
 		super();
 		this.custNo = custNo;
 		this.custName = custName;
@@ -70,10 +71,10 @@ public class MemberVo {
 	public void setJoinDate(Date joinDate) {
 		this.joinDate = joinDate;
 	}
-	public char getGrade() {
+	public String getGrade() {
 		return grade;
 	}
-	public void setGrade(char grade) {
+	public void setGrade(String grade) {
 		this.grade = grade;
 	}
 	public String getCity() {
