@@ -4,13 +4,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>쇼핑몰 회원관리</title>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/view/header.jsp"/>
+	<header>
+		<jsp:include page="/WEB-INF/view/header.jsp"/>
+		<jsp:include page="/WEB-INF/view/nav.jsp"/>
+	</header>
+
 	<section>
-	
+		
 	</section>
-	<jsp:include page="/WEB-INF/view/footer.jsp"/>
+
+	<footer>
+		<jsp:include page="/WEB-INF/view/footer.jsp"/>
+	</footer>
 </body>
 </html>

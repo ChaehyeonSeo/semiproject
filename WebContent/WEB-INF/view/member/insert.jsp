@@ -12,7 +12,7 @@
 	<section>
 	<h1>회원등록</h1>
 		<form action="<%=request.getContextPath()%>/insert" method="post">
-				회원번호:<input type="text" name="custNo"> 
+				회원번호:<input type="text" name="custNo" disabled readonly> 
 				<br>
 				회원성명:<input type="text" name="custName"> 
 				<br>
