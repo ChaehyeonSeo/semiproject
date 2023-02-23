@@ -6,13 +6,6 @@ import member.model.vo.MemberVo;
 import static common.jdbc.JDBCTemplate.*;
 
 public class MemberService {
-	public static int getMaxNo() {
-		int result = 0;
-		Connection conn = getConnection();
-		result = new MemberDao().getMaxNo(conn);
-		close(conn);
-		return result;
-	}
 
 	public int insert(MemberVo vo) {
 		int result = -1;
@@ -21,6 +14,5 @@ public class MemberService {
 		close(conn);
 		return result;
 	}
-	
 
 }

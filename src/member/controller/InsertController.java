@@ -39,7 +39,6 @@ public class InsertController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int custNo = Integer.parseInt(request.getParameter("custNo"));
 		String custName = request.getParameter("custName");
 		String phone = request.getParameter("phone");
 		String address = request.getParameter("address");
@@ -56,7 +55,6 @@ public class InsertController extends HttpServlet {
 		String city = request.getParameter("city");
 		
 		MemberVo vo = new MemberVo();
-		vo.setCustNo(custNo);
 		vo.setCustName(custName);
 		vo.setPhone(phone);
 		vo.setAddress(address);
@@ -68,6 +66,7 @@ public class InsertController extends HttpServlet {
 		
 		if (result < 1) {
 			System.out.println("회원가입실패");
+			response.sendRedirect(request.getContextPath()+"/insert");
 		} else {
 			System.out.println("회원가입성공");
 			response.sendRedirect(request.getContextPath()+"/insert");
