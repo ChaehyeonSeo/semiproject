@@ -19,4 +19,12 @@ public class ListService {
 		close(conn);
 		return result;
 	}
+	public List<SalesVo> getMemberSales() {
+		List<SalesVo> result = null;
+		Connection conn = getConnection();
+		result = new ListDao().getMemberSales(conn);
+		System.out.println("srv:"+ result);
+		close(conn);
+		return result;
+	}
 }

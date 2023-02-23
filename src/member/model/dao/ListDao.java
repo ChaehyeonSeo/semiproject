@@ -44,4 +44,35 @@ public class ListDao {
 		System.out.println("dao:"+result);
 		return result;
 	}
+
+	public List<SalesVo> getMemberSales(Connection conn) {
+		List<SalesVo> result = null;
+		String query = "SELECT CUSTNO,"
+				+ "(SELECT CUSTNAME FROM MEMBER_TBL_02 WHERE MONEY_TBL_02.CUSTNO = MEMBER_TBL_02.CUSTNO) CUSTNAME,"
+				+ "(SELECT GRADE FROM MEMBER_TBL_02 WHERE MONEY_TBL_02.CUSTNO = MEMBER_TBL_02.CUSTNO) GRADE,"
+				+ "SUM(PRICE) PRICE FROM MONEY_TBL_02 GROUP BY CUSTNO ORDER BY PRICE DESC";
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(query);
+			rs = pstmt.executeQuery();
+			result = new ArrayList<SalesVo>();
+			while(rs.next()) {
+				SalesVo vo = new SalesVo();
+				vo.setCustNo(rs.getInt("custno"));
+				vo.setCustName(rs.getString("custname"));
+				vo.setGrade(rs.getString("grade"));
+				vo.setPrice(rs.getInt("price"));
+				result.add(vo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		System.out.println("dao:"+result);
+		return result;
+	}	
 }

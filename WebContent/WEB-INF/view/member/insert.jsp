@@ -4,9 +4,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-	int maxNo = MemberService.getMaxNo();
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,15 +11,14 @@
 <title>회원등록</title>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/view/header.jsp"/>
+	<header>
+		<jsp:include page="/WEB-INF/view/header.jsp"/>
+		<jsp:include page="/WEB-INF/view/nav.jsp"/>
+	</header>
 	<section>
 	<h1>홈쇼핑 회원 등록</h1>
 		<form action="<%=request.getContextPath()%>/insert" method="post">
 			<table>
-				<tr>
-					<td>회원번호</td>
-					<td><input type="text" name="custNo" value="${ maxNo }"> <br></td>
-				</tr>
 				<tr>
 					<td>회원성명</td>
 					<td><input type="text" name="custName"> <br></td>
@@ -48,10 +44,12 @@
 					<td><input type="text" name="city"> <br></td>
 				</tr>
 			</table>
+			<button type="submit">등록</button>
 		</form>
-		<button type="submit">등록</button>
-		<button onclick="location.href=''">조회</button>
+		<button onclick="location.href='<%=request.getContextPath()%>/list'">조회</button>
 	</section>
-	<jsp:include page="/WEB-INF/view/footer.jsp"/>
+	<footer>
+		<jsp:include page="/WEB-INF/view/footer.jsp" />
+	</footer>
 </body>
 </html>
