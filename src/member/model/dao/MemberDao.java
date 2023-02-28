@@ -12,8 +12,8 @@ public class MemberDao {
 	// 회원등록
 	public int insert(Connection conn, MemberVo vo) {
 		int result = -1;
-		String query = "INSERT INTO MEMBER_TBL_02 VALUES ";
-		query += " ((SELECT MAX(CUSTNO)+1 FROM MEMBER_TBL_02)"
+		String query = "INSERT INTO MEMBER VALUES ";
+		query += " ((SELECT MAX(CUSTNO)+1 FROM MEMBER)"
 				+ ",?,?,?,?,?,?)";
 		
 		PreparedStatement pstmt = null;

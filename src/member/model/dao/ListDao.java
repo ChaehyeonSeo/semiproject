@@ -16,7 +16,7 @@ public class ListDao {
 	//회원조회
 	public List<MemberVo> getMemberList(Connection conn) {
 		List<MemberVo> result = null;
-		String query = "SELECT CUSTNO, CUSTNAME, PHONE, ADDRESS, JOINDATE, GRADE, CITY FROM MEMBER_TBL_02";
+		String query = "SELECT CUSTNO, CUSTNAME, PHONE, ADDRESS, JOINDATE, GRADE, CITY FROM MEMBER";
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
@@ -48,9 +48,9 @@ public class ListDao {
 	public List<SalesVo> getMemberSales(Connection conn) {
 		List<SalesVo> result = null;
 		String query = "SELECT CUSTNO,"
-				+ "(SELECT CUSTNAME FROM MEMBER_TBL_02 WHERE MONEY_TBL_02.CUSTNO = MEMBER_TBL_02.CUSTNO) CUSTNAME,"
-				+ "(SELECT GRADE FROM MEMBER_TBL_02 WHERE MONEY_TBL_02.CUSTNO = MEMBER_TBL_02.CUSTNO) GRADE,"
-				+ "SUM(PRICE) PRICE FROM MONEY_TBL_02 GROUP BY CUSTNO ORDER BY PRICE DESC";
+				+ "(SELECT CUSTNAME FROM MEMBER WHERE MONEY.CUSTNO = MEMBER.CUSTNO) CUSTNAME,"
+				+ "(SELECT GRADE FROM MEMBER WHERE MONEY.CUSTNO = MEMBER.CUSTNO) GRADE,"
+				+ "SUM(PRICE) PRICE FROM MONEY GROUP BY CUSTNO ORDER BY PRICE DESC";
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		try {
