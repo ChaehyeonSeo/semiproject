@@ -18,35 +18,47 @@
 	<section>
 	<h1>홈쇼핑 회원 등록</h1>
 		<form action="<%=request.getContextPath()%>/insert" method="post">
-			<table>
-				<tr>
-					<td>회원성명</td>
-					<td><input type="text" name="custName"> <br></td>
-				</tr>
-				<tr>
-					<td>회원전화</td>
-					<td><input type="text" name="phone"> <br></td>
-				</tr>
-				<tr>
-					<td>회원주소</td>
-					<td><input type="text" name="address"> <br></td>
-				</tr>
-				<tr>
-					<td>가입일자</td>
-					<td><input type="date" name="joinDate"> <br></td> 
-				</tr>
-				<tr>
-					<td>고객등급</td>
-					<td><input type="text" name="grade"> <br></td> 
-				</tr>
-				<tr>
-					<td>도시코드</td>
-					<td><input type="text" name="city"> <br></td>
-				</tr>
-			</table>
-			<button type="submit">등록</button>
+			<div>
+				<label for="valid01" class="form-label">회원성명</label> 
+				<input type="text" name="custName" class="form-control" id="valid01" required>
+			</div>
+			<div>
+				<label for="valid02" class="form-label">회원전화</label> 
+				<input type="text" name="phone" class="form-control" id="valid02" required>
+			</div>
+			<div>
+				<label for="valid03" class="form-label">회원주소</label> 
+				<input type="text" name="address" class="form-control" id="valid03" required>
+			</div>
+			<div>
+				<label for="valid04" class="form-label">가입일자</label>
+				<input type="date" name="joinDate" class="form-date" id="valid04" required> 
+			</div>
+			<div>
+				<label for="valid05" class="form-label">고객등급</label>
+				<select name="grade" class="form-select" id="valid05" required>
+					<option selected disabled value="">선택</option>
+					<option label="A: VIP">A</option>
+					<option label="B: 일반">B</option>
+					<option label="C: 직원">C</option>
+				</select>
+			</div>
+			<div>
+				<label for="valid06" class="form-label">도시코드</label>
+				<select name="city" class="form-select" id="valid06" required>
+					<option selected disabled value="">선택</option>
+					<option>01</option>
+					<option>02</option>
+					<option>03</option>
+				</select>
+			</div>
+			<div>
+				<button type="submit">등록</button>
+			</div>
+			<div>
+				<button type="button" onclick="location.href='<%=request.getContextPath()%>/list'">조회</button>
+			</div>
 		</form>
-		<button onclick="location.href='<%=request.getContextPath()%>/list'">조회</button>
 	</section>
 	<footer>
 		<jsp:include page="/WEB-INF/view/footer.jsp" />
