@@ -17,7 +17,7 @@
 	</header>
 	<section>
 	<h1>홈쇼핑 회원 등록</h1>
-		<form action="<%=request.getContextPath()%>/insert" method="post">
+		<form name="insert" action="<%=request.getContextPath()%>/insert" method="post">
 			<div>
 				<label for="valid01" class="form-label">회원성명</label> 
 				<input type="text" name="custName" class="form-control" id="valid01" required>
@@ -53,7 +53,7 @@
 				</select>
 			</div>
 			<div>
-				<button type="submit">등록</button>
+				<button class="btn-submit" type="submit" onclick="submit()">등록</button>
 			</div>
 			<div>
 				<button type="button" onclick="location.href='<%=request.getContextPath()%>/list'">조회</button>
@@ -64,4 +64,12 @@
 		<jsp:include page="/WEB-INF/view/footer.jsp" />
 	</footer>
 </body>
+<script>
+	function submitInsert() {
+		if (document.getElementById("btn-submit").value="") {
+			alert("회원등록이 완료되었습니다!");
+			return false;
+		} else document.insert.submit();
+	}
+</script>
 </html>
